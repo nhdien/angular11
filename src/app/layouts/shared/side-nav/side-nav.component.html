@@ -1,0 +1,34 @@
+<div class="be-left-sidebar bg-white" [ngClass]="{'hidden': sideNavService.hideSideNav }">
+  <div class="nav-side-menu">
+    <div class="menu-list">
+      <ul id="menu-content" class="menu-content">
+        <li [routerLinkActive]="['active']"><a [routerLink]="['dashboard']">Trang chủ</a></li>
+        <li>
+          <a href="javascript:void(0);">Hồ sơ đối tượng <span class="arrow"></span></a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a href="javascript:void(0);">Danh mục <span class="arrow"></span></a>
+          <ul class="sub-menu">
+            <li class="font-600 caption">Danh mục chung</li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/danh-muc/dia-phuong']">Tỉnh thành</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/danh-muc/dan-toc']">Dân tộc</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/danh-muc/ton-giao']">Tôn giáo</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/danh-muc/quan-he-than-nhan']">Quan hệ thân nhân</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/danh-muc/hoc-van']">Học vấn</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/danh-muc/danh-hieu']">Danh hiệu</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/danh-muc/cap-bac']">Cấp bậc</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/danh-muc/loai-bang-khen']">Loại bằng khen</a></li>
+            <li [routerLinkActive]="['active']"><a [routerLink]="['/danh-muc/huan-huy-chuong']">Huân huy chương</a></li>
+            <li class="font-600 caption">Danh mục trợ cấp</li>
+            <li class="font-600 caption">Danh mục khác</li>
+          </ul>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a href="javascript:void(0);">Hệ thống <span class="arrow"></span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

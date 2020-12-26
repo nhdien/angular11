@@ -1,0 +1,39 @@
+<ol class="breadcrumb">
+    <li>Danh mục</li>
+    <li class="active">Danh mục Dân tộc</li>
+</ol>
+<div class="panel panel-default">
+    <div class="panel-body full-width">
+        <div id="grid-result" class="body">
+            <div class="hr-grid table-responsive">
+                <table class="table table-condensed table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center w69">
+                                
+                            </th>
+                            <th class="text-center w35">#</th>
+                            <th class="text-left w99">Mã</th>
+                            <th class="w250">Tên dân tộc</th>
+                            <th>Tên gọi khác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let dantoc of dantocs; let i = index">
+                            <td class="text-center">
+                                <a href="javascript:void(0);" (click)="toggle(dantoc);">
+                                    <img *ngIf="dantoc.TRANGTHAI == 1" src="../../../../assets/images/unlocked_16.gif" alt="" />
+                                    <img *ngIf="dantoc.TRANGTHAI == 0" src="../../../../assets/images/locked_16.gif" alt="" />
+                                </a>
+                            </td>
+                            <td class="text-center">{{ i + 1 }}</td>
+                            <td class="font-600">{{ dantoc.MA }}</td>
+                            <td>{{ dantoc.TEN_DANTOC }}</td>
+                            <td>{{ dantoc.TEN_KHAC }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

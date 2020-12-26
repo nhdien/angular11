@@ -1,0 +1,58 @@
+<div class="toolbar pull-right command-bar ng-scope">
+    <div class="btn-group">
+        <button type="button" class="btn btn-sm btn-primary" (click)="add()">Thêm mới</button>
+    </div>
+</div>
+<ol class="breadcrumb">
+    <li>Danh mục</li>
+    <li class="active">Danh mục Học vấn</li>
+</ol>
+<div class="panel panel-default">
+    <div class="panel-body full-width">
+        <div id="grid-result" class="body">
+            <div class="hr-grid table-responsive">
+                <table class="table table-condensed table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center w69">
+                                <a href="javascript:void(0);" (click)="add()">
+                                    <img src="../../../../assets/images/add-icon.png" alt="Thêm mới" />
+                                </a>
+                            </th>
+                            <th class="text-center w35">#</th>
+                            <th class="w99">Mã</th>
+                            <th class="w150">Tên</th>
+                            <th>Mô tả</th>
+                            <td class="text-center w35"></td>
+                            <td class="text-center w35"></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let hocvan of hocvans; let i = index">
+                            <td class="text-center">
+                                <a href="javascript:void(0);" (click)="toggle(hocvan);">
+                                    <img *ngIf="hocvan.TRANGTHAI == 1" src="../../../../assets/images/unlocked_16.gif" alt="" />
+                                    <img *ngIf="hocvan.TRANGTHAI == 0" src="../../../../assets/images/locked_16.gif" alt="" />
+                                </a>
+                            </td>
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ hocvan.ID }}</td>
+                            <td class="font-600">{{ hocvan.TEN }}</td>
+                            <td>{{ hocvan.GHICHU }}</td>
+                            <td>
+                                <a href="javascript:void(0);" (click)="edit(hocvan);">
+                                    <img src="../../../../assets/images/page_edit.png" alt="" />
+                                </a>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0);" (click)="delete(hocvan.ID)">
+                                    <img src="../../../../assets/images/trash_16.png" alt="" />
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

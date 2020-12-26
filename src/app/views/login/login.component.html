@@ -1,0 +1,52 @@
+<section class="main-content home-login-bg" id="section-home-login">
+  <div id="app-intro" class="clearfix">
+    <div id="application-name">
+      <h4 class="font-opensans">
+        <strong class="text-uppercase ng-binding">UBND tỉnh Kontum</strong><br>
+        <strong>Sở Lao động - Thương binh và Xã hội</strong>
+      </h4>
+      <h1 class="font-opensans text-uppercase">Hệ thống quản lý hồ sơ người có công V2</h1>
+      <ul>
+        <li>Quản lý khoa học hồ sơ người có công</li>
+        <li>Hỗ trợ quản lý và giải quyết các chế độ trợ cấp</li>
+        <li>Là công cụ phục vụ số hóa, tìm kiếm, lưu trữ</li>
+        <li>Nâng cao năng suất và hiệu quả công tác</li>
+        <li>Giao diện thân thiện, dễ dùng, tương thích nhiều trình duyệt</li>
+        <li>Tối ưu bảo mật, xác thực 2 lớp</li>
+      </ul>
+    </div>
+  </div>
+  <div id="home-login" class="panel panel-default panel-login" style="background-color:transparent;">
+    <div class="panel-body panel-login white-bg">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="row" style="min-height:250px;">
+          <div class="col-md-12">
+            <h3 class="text-center">
+              <img style="margin:10px auto; width:80px; text-align:center; display:block;" src="../../../assets/images/login.png" alt="Avatar">
+              Đăng nhập
+            </h3>
+            <div class="input-group">
+              <label class="input-group-addon control-label">Tên đăng nhập</label>
+              <input type="text" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.email">Email is invalid</div>
+              </div>
+            </div>
+            <div class="input-group">
+              <label class="input-group-addon control-label">Mật khẩu</label>
+              <input type="password" class="form-control" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+              </div>
+            </div>
+            <button class="btn btn-block btn-success" type="submit" style="height:35px;">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+              Đăng nhập</button>
+          </div>
+        </div>
+        <p class="text-center login-note gray-color">Xây dựng và phát triển bởi Trung tâm  CNTT - VNPT Thừa Thiên Huế <br>Điện thoại: (0234)-3846869</p>
+      </form>
+    </div>
+  </div>
+</section>

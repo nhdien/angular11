@@ -1,0 +1,53 @@
+<ol class="breadcrumb">
+    <li>Danh mục</li>
+    <li class="active">Danh mục Quan hệ thân nhân</li>
+</ol>
+<div class="panel panel-default">
+    <div class="panel-body full-width">
+        <div id="grid-result" class="body">
+            <div class="hr-grid table-responsive">
+                <table class="table table-condensed table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center w69">
+                                <a href="javascript:void(0);" (click)="add()">
+                                    <img src="../../../../assets/images/add-icon.png" alt="Thêm mới" />
+                                </a>
+                            </th>
+                            <th class="text-center w35">#</th>
+                            <th class="w99">Mã</th>
+                            <th class="w150">Tên quan hệ</th>
+                            <th>Ghi chú</th>
+                            <td class="text-center w35"></td>
+                            <td class="text-center w35"></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let quanhe of quanhes; let i = index">
+                            <td class="text-center">
+                                <a href="javascript:void(0);" (click)="toggle(quanhe);">
+                                    <img *ngIf="quanhe.TRANGTHAI == 1" src="../../../../assets/images/unlocked_16.gif" alt="" />
+                                    <img *ngIf="quanhe.TRANGTHAI == 0" src="../../../../assets/images/locked_16.gif" alt="" />
+                                </a>
+                            </td>
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ quanhe.ID }}</td>
+                            <td class="font-600">{{ quanhe.QUANHE }}</td>
+                            <td>{{ quanhe.GHICHU }}</td>
+                            <td>
+                                <a href="javascript:void(0);" (click)="edit(quanhe);">
+                                    <img src="../../../../assets/images/page_edit.png" alt="" />
+                                </a>
+                            </td>
+                            <td>
+                                <a href="javascript:void(0);" (click)="delete(quanhe.ID)">
+                                    <img src="../../../../assets/images/trash_16.png" alt="" />
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

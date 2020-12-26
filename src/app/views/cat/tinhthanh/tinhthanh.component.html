@@ -1,0 +1,116 @@
+<ol class="breadcrumb">
+    <li>Danh mục</li>
+    <li class="active">Danh mục Hành chính</li>
+</ol>
+<div class="panel panel-default">
+    <div class="panel-body full-width">
+        <div id="grid-result" class="body">
+            <div class="hr-grid table-responsive">
+                <table class="table table-condensed table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center w69"></th>
+                            <th class="text-center w35">#</th>
+                            <th class="text-left w250">Mã Tỉnh/TP</th>
+                            <th>Tên Tỉnh/Thành phố</th>
+                            <th class="w250">Cấp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let tinh of tinhs; let i = index">
+                            <td class="text-center"><a href="javascript:void(0)" (click)="get_huyens(tinh, dshuyen)"><span class="fa fa-paper-plane text-primary"></span></a></td>
+                            <td class="text-center">{{ i + 1 }}</td>
+                            <td class="font-600">{{ tinh.MA }}</td>
+                            <td>{{ tinh.TEN }}</td>
+                            <td *ngIf="tinh.CAP == 1">TP trực thuộc Trung ương</td>
+                            <td *ngIf="tinh.CAP == 2">Tỉnh</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #dshuyen>
+  <div class="modal-header">
+    <button type="button" class="close" (click)="modalRef.hide()">
+        <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title">
+        <img src="../../../../assets/images/modal-icon.png" alt="ico"> Danh mục Hành chính
+    </h4>
+  </div>
+  <div class="modal-body">
+    <div class="hr-grid table-responsive">
+        <table class="table table-condensed table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center w69"></th>
+                    <th class="text-center w35">#</th>
+                    <th class="text-left w250">Mã Quận/Huyện</th>
+                    <th>Tên Quận/Huyện</th>
+                    <th class="w250">Cấp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let huyen of huyens; let i = index">
+                    <td class="text-center"><a href="javascript:void(0)" (click)="get_phuongxas(huyen, dsphuongxa)"><span class="fa fa-paper-plane text-primary"></span></a></td>
+                    <td class="text-center">{{ i + 1 }}</td>
+                    <td class="font-600">{{ huyen.MA }}</td>
+                    <td>{{ huyen.TEN }}</td>
+                    <td [ngSwitch]="huyen.CAP">
+                        <text *ngSwitchCase="1">Quận</text>
+                        <text *ngSwitchCase="2">TP trực thuộc tỉnh</text>
+                        <text *ngSwitchCase="3">Thị xã</text>
+                        <text *ngSwitchDefault>Huyện</text>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-sm btn-default" (click)="modalRef.hide()">Đóng</button>
+  </div>
+</ng-template>
+
+<ng-template #dsphuongxa>
+    <div class="modal-header">
+      <button type="button" class="close" (click)="modalRef2.hide()">
+          <span aria-hidden="true">×</span>
+      </button>
+      <h4 class="modal-title">
+          <img src="../../../../assets/images/modal-icon.png" alt="ico"> Danh mục Hành chính
+      </h4>
+    </div>
+    <div class="modal-body">
+      <div class="hr-grid table-responsive">
+          <table class="table table-condensed table-striped table-bordered">
+              <thead>
+                  <tr>
+                      <th class="text-center w35">#</th>
+                      <th class="text-left w250">Mã Phường/Xã</th>
+                      <th>Tên Phường/Xã</th>
+                      <th class="w250">Cấp</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let phuong of phuongxas; let i = index">
+                      <td class="text-center">{{ i + 1 }}</td>
+                      <td class="font-600">{{ phuong.MA }}</td>
+                      <td>{{ phuong.TEN }}</td>
+                      <td [ngSwitch]="phuong.CAP">
+                          <text *ngSwitchCase="1">Phường</text>
+                          <text *ngSwitchCase="2">Thị trấn</text>
+                          <text *ngSwitchCase="3">Xã</text>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-sm btn-default" (click)="modalRef2.hide()">Đóng</button>
+    </div>
+  </ng-template>

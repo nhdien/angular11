@@ -1,0 +1,34 @@
+<header class="fixed-top bg-white">
+  <div class="container-fluid">
+    <div id="application-name" title="Sở Lao động - Thương binh và Xã hội tỉnh Kontum">
+      <a [routerLink]="['/dashboard']">
+        <h1 class="font-opensans text-uppercase">Quản lý hồ sơ người có công</h1>
+      </a>
+    </div>
+    <div id="account-info" class="pull-right text-right">
+        <!-- <a title="Trợ giúp" class="nav-icon" href="#" target="_blank" ><img src="../../../../assets/images/icon_help.png" alt="Help"> Trợ giúp</a> -->
+
+        <span dropdown>
+            <a href id="dd-append-to-body" dropdownToggle (click)="false" aria-controls="dd-append-to-body-dropdown">
+                <b>{{ account.FirstName}} {{ account.LastName}} </b> ({{ account.Email }})
+                &nbsp;
+                <img class="avatar" src="../../../../assets/images/icon_account.png" alt="Avatar">
+            </a>
+            <ul id="dd-append-to-body-dropdown" *dropdownMenu class="dropdown-menu" class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dd-append-to-body">
+                <li role="menuitem"><a class="dropdown-item">
+                    <img src="../../../../assets/images/icon_changepass.png" class="dropdown-icon" alt="ico"> Đổi mật khẩu</a>
+                </li>
+                <li role="menuitem" class="dropdown-divider divider"></li>
+                <li role="menuitem">
+                    <a class="dropdown-item"><img src="../../../../assets/images/icon_log.png" class="dropdown-icon" alt="ico"> Log đăng nhập</a>
+                </li>
+                <li role="menuitem">
+                    <a class="dropdown-item"><img src="../../../../assets/images/icon_log.png" class="dropdown-icon" alt="ico"> Log hệ thống</a>
+                </li>
+                <li role="menuitem" class="dropdown-divider divider"></li>
+                <li role="menuitem"><a href="#" class="dropdown-item" (click)="logout()"><b>Thoát</b></a></li>
+            </ul>
+          </span>
+    </div>
+  </div>
+</header>
